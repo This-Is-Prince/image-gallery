@@ -3,7 +3,6 @@ import { BiLike } from "react-icons/bi";
 import { ImageCardType } from "../types";
 
 const ImageCard: React.FC<ImageCardType> = ({ image }) => {
-  console.log(image);
   return (
     <article className="image-card">
       <div className="main-image-wrapper">

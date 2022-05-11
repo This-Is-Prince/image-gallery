@@ -8,6 +8,12 @@ import { unsplash } from "./api/unsplash";
 const App = () => {
   const [appState, dispatch] = useReducer(reducer, INITIAL_STATE);
   useEffect(() => {
+    unsplash.photos.get({ photoId: "g30P1zcOzXo" }).then((data) => {
+      if (data !== undefined && data.response !== undefined) {
+        dispatch({ type: "ADD_BG_IMAGES", payload: data.response });
+      }
+    });
+
     unsplash.photos.list({ page: 1, perPage: 18 }).then((data) => {
       if (
         data !== undefined &&
