@@ -4,10 +4,12 @@ interface State {
   images: Basic[] | null;
   mainBgImage: Full | null;
   isLoading: boolean;
+  popup: Basic | null;
 }
 type Action =
   | { type: "ADD_IMAGES"; payload: Basic[] }
-  | { type: "ADD_BG_IMAGES"; payload: Full };
+  | { type: "ADD_BG_IMAGES"; payload: Full }
+  | { type: "OPEN_POPUP"; payload: Basic };
 
 interface Context {
   appState: State;

@@ -4,7 +4,6 @@ import { UserContext } from "../app/context";
 const MainSearchBar = () => {
   const { appState } = useContext(UserContext)!;
   const image = appState.mainBgImage!;
-  console.log(image);
   return (
     <section
       className="main-search-bar"

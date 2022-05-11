@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import { INITIAL_STATE, reducer } from "./app/reducer";
 import Main from "./components/Main";
 import { unsplash } from "./api/unsplash";
+import ImageCardPopUp from "./components/ImageCardPopUp";
 
 const App = () => {
   const [appState, dispatch] = useReducer(reducer, INITIAL_STATE);
@@ -28,39 +29,9 @@ const App = () => {
     <UserContext.Provider value={{ appState: appState, dispatch: dispatch }}>
       <Header />
       <Main />
+      {appState.popup !== null && <ImageCardPopUp image={appState.popup} />}
     </UserContext.Provider>
   );
 };
 
 export default App;
-
-/* 
-const App = () => {
-  const [images, setImages] = useState<Basic[]>([]);
-  useEffect(() => {
-    const unsplash = createApi({
-      accessKey: import.meta.env.VITE_UNSPLASH_API_ACCESS_KEY,
-    });
-    
-  }, []);
-  return (
-    <div>
-      {images.map((image) => {
-        console.log(image.id);
-        return (
-          <section key={image.id}>
-            <img
-              src={image.links.download}
-              width="250"
-              height="250"
-              alt={image.alt_description!}
-            />
-          </section>
-        );
-      })}
-    </div>
-  );
-};
-
-export default App;
- */
