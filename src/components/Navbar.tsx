@@ -1,9 +1,29 @@
-import React, { useContext } from "react";
-import { UserContext } from "../app/context";
+import { AiOutlineSearch } from "react-icons/ai";
+import { TiDelete } from "react-icons/ti";
 
 const Navbar = () => {
-  const context = useContext(UserContext);
-  return <div>Navbar</div>;
+  return (
+    <nav className="navbar">
+      <div className="wrapper">
+        <button className="search-btn search-icon">
+          <AiOutlineSearch />
+        </button>
+        <input className="search" placeholder="Search" type="text" />
+        <button className="search-btn clear-icon">
+          <TiDelete />
+        </button>
+      </div>
+      <a href="#" className="navbar-link">
+        Explore
+      </a>
+      <a href="#" className="navbar-link">
+        Collection
+      </a>
+      <a href="#" className="navbar-link">
+        Community
+      </a>
+    </nav>
+  );
 };
 
 export default Navbar;

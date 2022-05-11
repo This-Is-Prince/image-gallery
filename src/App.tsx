@@ -1,15 +1,27 @@
-import { useState, useEffect, useReducer } from "react";
-import { createApi } from "unsplash-js";
-import { Basic } from "unsplash-js/dist/methods/photos/types";
+import { useEffect, useReducer } from "react";
 import { UserContext } from "./app/context";
-import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 import { INITIAL_STATE, reducer } from "./app/reducer";
+import Main from "./components/Main";
+import { unsplash } from "./api/unsplash";
 
 const App = () => {
   const [appState, dispatch] = useReducer(reducer, INITIAL_STATE);
+  useEffect(() => {
+    unsplash.photos.list({ page: 1, perPage: 18 }).then((data) => {
+      if (
+        data !== undefined &&
+        data.response !== undefined &&
+        data.response.results !== undefined
+      ) {
+        dispatch({ payload: data.response.results, type: "ADD_IMAGES" });
+      }
+    });
+  }, []);
   return (
     <UserContext.Provider value={{ appState: appState, dispatch: dispatch }}>
-      <Navbar />
+      <Header />
+      <Main />
     </UserContext.Provider>
   );
 };
@@ -23,15 +35,7 @@ const App = () => {
     const unsplash = createApi({
       accessKey: import.meta.env.VITE_UNSPLASH_API_ACCESS_KEY,
     });
-    unsplash.photos.list({}).then((data) => {
-      if (
-        data !== undefined &&
-        data.response !== undefined &&
-        data.response.results !== undefined
-      ) {
-        setImages(data.response.results);
-      }
-    });
+    
   }, []);
   return (
     <div>
