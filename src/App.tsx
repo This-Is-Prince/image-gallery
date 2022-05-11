@@ -1,12 +1,27 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useReducer } from "react";
 import { createApi } from "unsplash-js";
 import { Basic } from "unsplash-js/dist/methods/photos/types";
+import { UserContext } from "./app/context";
+import Navbar from "./components/Navbar";
+import { INITIAL_STATE, reducer } from "./app/reducer";
 
+const App = () => {
+  const [appState, dispatch] = useReducer(reducer, INITIAL_STATE);
+  return (
+    <UserContext.Provider value={{ appState: appState, dispatch: dispatch }}>
+      <Navbar />
+    </UserContext.Provider>
+  );
+};
+
+export default App;
+
+/* 
 const App = () => {
   const [images, setImages] = useState<Basic[]>([]);
   useEffect(() => {
     const unsplash = createApi({
-      accessKey: "xs-zwbZ78ao1DOL22bLSmPV2SgHtd9uK5h7HTkAiFMw",
+      accessKey: import.meta.env.VITE_UNSPLASH_API_ACCESS_KEY,
     });
     unsplash.photos.list({}).then((data) => {
       if (
@@ -38,3 +53,4 @@ const App = () => {
 };
 
 export default App;
+ */
