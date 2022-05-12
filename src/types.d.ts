@@ -2,7 +2,6 @@ import { Basic, Full } from "unsplash-js/dist/methods/photos/types";
 
 interface State {
   images: Basic[] | null;
-  mainBgImage: Full | null;
   isLoading: boolean;
   popup: Basic | null;
 }
