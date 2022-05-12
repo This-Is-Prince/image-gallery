@@ -17,41 +17,52 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 #root {
-  z-index: 0;
   position: relative;
 }
+
+/* 
+=============
+HEADER CSS START
+=============
+*/
 .header {
   top: 0;
   width: 100%;
-  display: flex;
+  min-height: 97px;
+  padding: 0 150px;
+  position: sticky;
+
   font-size: 12px;
   font-weight: 700;
-  position: sticky;
-  padding: 0 150px;
-  min-height: 97px;
   line-height: 15px;
-  align-items: center;
+
   color: var(--clr-primary);
   background-color: white;
   font-family: var(--ff-montserrat);
   box-shadow: 1px 1px rgba(0, 0, 0, 0.05);
+
+  display: grid;
+  column-gap: 3rem;
+  align-items: center;
+  grid-template-columns: auto 3fr auto;
 }
 
 .header > h2 {
   font-size: 30px;
   font-weight: 400;
   line-height: 42px;
+  user-select: none;
   font-style: normal;
   font-family: var(--ff-pattaya);
 }
 
 .navbar {
-  margin: auto;
-  display: flex;
-  column-gap: 2rem;
+  display: grid;
+  column-gap: 1rem;
   align-items: center;
-  justify-content: space-between;
+  grid-template-columns: 1fr auto;
 }
 
 /* 
@@ -62,7 +73,6 @@ SEARCH BAR CSS START
 
 .wrapper {
   display: flex;
-  max-width: 419px;
   position: relative;
 }
 
@@ -111,13 +121,19 @@ SEARCH BAR CSS END
 =============
 */
 
-.navbar > a {
+.links-wrapper {
+  display: flex;
+  column-gap: 1rem;
+}
+
+.navbar-link {
   text-decoration: none;
   color: var(--clr-primary);
 }
 
 .mode-container {
   display: flex;
+  margin-left: auto;
   column-gap: 0.5rem;
   align-items: center;
 }
@@ -231,6 +247,8 @@ img {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-blend-mode: overlay;
+  background-color: rgb(63, 97, 97);
   background-image: url(../assets/mountain.jpg);
 
   display: flex;
