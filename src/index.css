@@ -231,6 +231,7 @@ img {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  background-image: url(../assets/mountain.jpg);
 
   display: flex;
   row-gap: 1rem;
