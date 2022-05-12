@@ -46,7 +46,7 @@ HEADER CSS START
   display: grid;
   column-gap: 3rem;
   align-items: center;
-  grid-template-columns: auto 3fr auto;
+  grid-template-columns: auto 3fr minmax(124px, auto);
 }
 
 .header > h2 {
@@ -136,6 +136,39 @@ SEARCH BAR CSS END
   margin-left: auto;
   column-gap: 0.5rem;
   align-items: center;
+}
+
+.mode {
+  width: 44px;
+  height: 22px;
+  cursor: pointer;
+  transition: 0.5s;
+  position: relative;
+  border-radius: 1rem;
+  background: #858484;
+  border: 2px solid #a7a7a7;
+}
+
+.dark {
+  background-color: white;
+}
+
+.mode span {
+  top: 50%;
+  left: 1.5px;
+  width: 16px;
+  height: 16px;
+  transition: 0.5s;
+  position: absolute;
+  border-radius: 100%;
+  background-color: white;
+  transform: translateY(-50%);
+}
+
+.dark span {
+  left: auto;
+  right: 1.5px;
+  background-color: #858484;
 }
 
 /* 

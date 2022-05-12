@@ -5,6 +5,7 @@ const INITIAL_STATE: State = {
   images: null,
   isLoading: true,
   popup: null,
+  mode: "",
 };
 
 const reducer: Reducer<State, Action> = (state, action) => {
@@ -13,6 +14,8 @@ const reducer: Reducer<State, Action> = (state, action) => {
       return { ...state, images: action.payload, isLoading: false };
     case "OPEN_POPUP":
       return { ...state, popup: action.payload };
+    case "CHANGE_MODE":
+      return { ...state, mode: action.payload };
     default:
       return state;
   }
