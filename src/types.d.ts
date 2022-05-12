@@ -1,6 +1,6 @@
 import { Basic, Full } from "unsplash-js/dist/methods/photos/types";
 
-type Mode = "light" | "";
+type Mode = "dark" | "";
 
 interface State {
   images: Basic[] | null;
@@ -14,13 +14,15 @@ type Action =
   | { type: "OPEN_POPUP"; payload: Basic }
   | { type: "CHANGE_MODE"; payload: Mode };
 
+interface SearchBarProps {}
+
 interface Context {
   appState: State;
-  dispatch: INITIAL_STATE;
+  dispatch: React.Dispatch<Action>;
 }
 
 interface ImageCardType {
   image: Basic;
 }
 
-export { State, Action, Context, ImageCardType };
+export { State, Action, Context, ImageCardType, SearchBarProps };

@@ -286,6 +286,8 @@ img {
 
   display: flex;
   row-gap: 1rem;
+  padding: 2rem;
+  text-align: center;
   align-items: center;
   flex-direction: column;
   justify-content: center;

@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
 import { UserContext } from "./app/context";
-import Header from "./components/Header";
+import Header from "./components/Header/Header";
 import { INITIAL_STATE, reducer } from "./app/reducer";
 import Main from "./components/Main";
 import { unsplash } from "./api/unsplash";
