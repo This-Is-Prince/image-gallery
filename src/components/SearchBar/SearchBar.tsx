@@ -4,6 +4,7 @@ import { TiDelete } from "react-icons/ti";
 import { unsplash } from "../../api/unsplash";
 import { UserContext } from "../../app/context";
 import { SearchBarProps } from "../../types";
+import "./style.css";
 
 const SearchBar: FC<SearchBarProps> = () => {
   const { dispatch } = useContext(UserContext)!;

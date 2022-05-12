@@ -1,5 +1,5 @@
-import React, { FC, useContext } from "react";
-import { UserContext } from "../../app/context";
+import { FC } from "react";
+import "./style.css";
 import { ImagesProps } from "../../types";
 import ImageCard from "./ImageCard";
 

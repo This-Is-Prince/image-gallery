@@ -1,4 +1,4 @@
-import SearchBar from "./Header/SearchBar";
+import SearchBar from "./SearchBar/SearchBar";
 
 const MainSearchBar = () => {
   return (

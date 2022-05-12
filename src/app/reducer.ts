@@ -5,7 +5,7 @@ const INITIAL_STATE: State = {
   images: null,
   isLoading: true,
   popup: null,
-  mode: "",
+  mode: "dark",
 };
 
 const reducer: Reducer<State, Action> = (state, action) => {
