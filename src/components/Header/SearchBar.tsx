@@ -17,8 +17,8 @@ const SearchBar: FC<SearchBarProps> = () => {
         .getPhotos({
           query,
           page: 1,
-          perPage: 10,
-          color: "green",
+          perPage: 100,
+          orderBy: "relevant",
           orientation: "portrait",
         })
         .then((data) => {

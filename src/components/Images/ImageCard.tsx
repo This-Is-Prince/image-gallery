@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
 import { BiLike } from "react-icons/bi";
-import { UserContext } from "../app/context";
-import { ImageCardType } from "../types";
+import { UserContext } from "../../app/context";
+import { ImageCardProps } from "../../types";
 
-const ImageCard: React.FC<ImageCardType> = ({ image }) => {
+const ImageCard: React.FC<ImageCardProps> = ({ image }) => {
   const { dispatch } = useContext(UserContext)!;
   return (
     <article className="image-card">

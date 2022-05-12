@@ -1,12 +1,9 @@
-import React, { useContext } from "react";
-import { UserContext } from "../app/context";
+import React, { FC, useContext } from "react";
+import { UserContext } from "../../app/context";
+import { ImagesProps } from "../../types";
 import ImageCard from "./ImageCard";
 
-const Images = () => {
-  const {
-    appState: { images },
-    dispatch,
-  } = useContext(UserContext)!;
+const Images: FC<ImagesProps> = ({ images }) => {
   return (
     <section className="images">
       {images.map((image) => {

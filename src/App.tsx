@@ -4,7 +4,7 @@ import Header from "./components/Header/Header";
 import { INITIAL_STATE, reducer } from "./app/reducer";
 import Main from "./components/Main";
 import { unsplash } from "./api/unsplash";
-import ImageCardPopUp from "./components/ImageCardPopUp";
+import ImageCardPopUp from "./components/Images/ImageCardPopUp";
 
 const App = () => {
   const [appState, dispatch] = useReducer(reducer, INITIAL_STATE);

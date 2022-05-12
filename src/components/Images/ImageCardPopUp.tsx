@@ -1,8 +1,8 @@
 import React from "react";
-import { ImageCardType } from "../types";
+import { ImageCardProps } from "../../types";
 import { BiLike } from "react-icons/bi";
 
-const ImageCardPopUp: React.FC<ImageCardType> = ({ image }) => {
+const ImageCardPopUp: React.FC<ImageCardProps> = ({ image }) => {
   return (
     <section className="popup-window">
       <article className="image-card">

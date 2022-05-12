@@ -15,14 +15,29 @@ type Action =
   | { type: "CHANGE_MODE"; payload: Mode };
 
 interface SearchBarProps {}
+interface EmptyImagesProps {
+  query: string;
+}
+
+interface ImagesProps {
+  images: Basic[];
+}
 
 interface Context {
   appState: State;
   dispatch: React.Dispatch<Action>;
 }
 
-interface ImageCardType {
+interface ImageCardProps {
   image: Basic;
 }
 
-export { State, Action, Context, ImageCardType, SearchBarProps };
+export {
+  State,
+  Action,
+  Context,
+  ImageCardProps,
+  SearchBarProps,
+  ImagesProps,
+  EmptyImagesProps,
+};
