@@ -1,5 +1,16 @@
+import { AppContext } from "./app/context";
+import useGlobalReducer from "./app/reducer";
+import Content from "./components/content/Content";
+import Header from "./components/header/Header";
+
 const App = () => {
-  return <div className="bg-red-500">Hello World</div>;
+  const [state, dispatch] = useGlobalReducer();
+  return (
+    <AppContext.Provider value={{ state, dispatch }}>
+      <Header />
+      <Content />
+    </AppContext.Provider>
+  );
 };
 
 export default App;

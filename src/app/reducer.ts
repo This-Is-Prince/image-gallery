@@ -1,23 +1,24 @@
-import { Reducer } from "react";
+import React, { Reducer, useReducer } from "react";
 import { Action, State } from "../types";
 
-const INITIAL_STATE: State = {
-  images: null,
-  isLoading: true,
-  popup: null,
-  mode: "dark",
+const state: State = {
+  query: "",
+  images: [],
 };
 
 const reducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
     case "ADD_IMAGES":
-      return { ...state, images: action.payload, isLoading: false };
-    case "OPEN_POPUP":
-      return { ...state, popup: action.payload };
-    case "CHANGE_MODE":
-      return { ...state, mode: action.payload };
+      return { ...state };
+    case "ADD_QUERY":
+      return { ...state, query: action.payload };
     default:
       return state;
   }
 };
-export { reducer, INITIAL_STATE };
+
+const useGlobalReducer = () => {
+  return useReducer(reducer, state);
+};
+
+export default useGlobalReducer;
