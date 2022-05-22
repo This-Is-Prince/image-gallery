@@ -1,4 +1,4 @@
-import React, { Reducer, useReducer } from "react";
+import { Reducer, useReducer } from "react";
 import { Action, State } from "../types";
 
 const state: State = {
@@ -9,7 +9,7 @@ const state: State = {
 const reducer: Reducer<State, Action> = (state, action) => {
   switch (action.type) {
     case "ADD_IMAGES":
-      return { ...state };
+      return { ...state, images: action.payload };
     case "ADD_QUERY":
       return { ...state, query: action.payload };
     default:

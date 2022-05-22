@@ -1,4 +1,5 @@
 import { FaSearch } from "react-icons/fa";
+import { unsplash } from "../../api/unsplash";
 import { useAppContext } from "../../app/context";
 
 const SearchBar = () => {
@@ -10,9 +11,14 @@ const SearchBar = () => {
         onChange={(e) => {
           dispatch({ type: "ADD_QUERY", payload: e.target.value });
         }}
-        onKeyUp={(e) => {
+        onKeyUp={async (e) => {
           if (e.key === "Enter" && state.query.trim()) {
-            dispatch({ type: "ADD_IMAGES" });
+            const res = await unsplash.search.getPhotos({
+              query: state.query.trim(),
+            });
+            if (res.response) {
+              dispatch({ type: "ADD_IMAGES", payload: res.response.results });
+            }
           }
         }}
         type="search"
@@ -22,9 +28,14 @@ const SearchBar = () => {
         aria-describedby="button-addon2"
       />
       <button
-        onClick={() => {
+        onClick={async () => {
           if (state.query.trim()) {
-            dispatch({ type: "ADD_IMAGES" });
+            const res = await unsplash.search.getPhotos({
+              query: state.query.trim(),
+            });
+            if (res.response) {
+              dispatch({ type: "ADD_IMAGES", payload: res.response.results });
+            }
           }
         }}
         className="bg-transparent py-2 px-6 rounded-md border-2 text-xl"

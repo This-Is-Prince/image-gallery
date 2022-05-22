@@ -1,5 +1,3 @@
-import React from "react";
-
 const Header = () => {
   return (
     <header className="shadow-md p-5">

@@ -5,7 +5,9 @@ interface State {
   images: Basic[];
 }
 
-type Action = { type: "ADD_QUERY"; payload: string } | { type: "ADD_IMAGES" };
+type Action =
+  | { type: "ADD_QUERY"; payload: string }
+  | { type: "ADD_IMAGES"; payload: Basic[] };
 
 interface Context {
   state: State;
