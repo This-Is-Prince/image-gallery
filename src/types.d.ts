@@ -1,8 +1,10 @@
-import { Basic, Full } from "unsplash-js/dist/methods/photos/types";
+import { Basic, Full, Random } from "unsplash-js/dist/methods/photos/types";
+
+type ImagesType = Basic[] | Random[];
 
 interface State {
   query: string;
-  images: Basic[];
+  images: ImagesType[];
 }
 
 type Action =
@@ -20,4 +22,28 @@ interface SearchBarType {
   setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
 }
 
-export { State, Action, Context, SearchBarType };
+interface UserType {
+  name: string;
+  username: string;
+  twitter_username: string;
+  instagram_username: string;
+  profile_img: string;
+}
+
+interface ImageCardType {
+  likes: number;
+  user: UserType;
+  img_url: string;
+  description: string;
+  download_url: string;
+}
+
+export {
+  State,
+  Action,
+  Context,
+  SearchBarType,
+  ImageCardType,
+  UserType,
+  ImagesType,
+};
