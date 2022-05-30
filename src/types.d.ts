@@ -14,4 +14,10 @@ interface Context {
   dispatch: React.Dispatch<Action>;
 }
 
-export { State, Action, Context };
+interface SearchBarType {
+  searchQuery: string;
+  getPhotos: () => Promise<void>;
+  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export { State, Action, Context, SearchBarType };

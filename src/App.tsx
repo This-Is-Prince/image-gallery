@@ -1,15 +1,13 @@
-import { AppContext } from "./app/context";
-import useGlobalReducer from "./app/reducer";
 import Content from "./components/content/Content";
 import Header from "./components/header/Header";
+import AppWrapper from "./context/AppContext";
 
 const App = () => {
-  const [state, dispatch] = useGlobalReducer();
   return (
-    <AppContext.Provider value={{ state, dispatch }}>
+    <AppWrapper>
       <Header />
       <Content />
-    </AppContext.Provider>
+    </AppWrapper>
   );
 };
 
