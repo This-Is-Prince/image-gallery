@@ -3,7 +3,6 @@ import { Random } from "unsplash-js/dist/methods/photos/types";
 import { Action, ImagesType, State } from "../types";
 
 const state: State = {
-  query: "",
   images: [[], [], [], []],
 };
 
@@ -16,8 +15,6 @@ const reducer: Reducer<State, Action> = (state, action) => {
         images[index % 4].push(image as Random);
       });
       return { ...state, images: images };
-    case "ADD_QUERY":
-      return { ...state, query: action.payload };
     default:
       return state;
   }

@@ -3,13 +3,10 @@ import { Basic, Full, Random } from "unsplash-js/dist/methods/photos/types";
 type ImagesType = Basic[] | Random[];
 
 interface State {
-  query: string;
   images: ImagesType[];
 }
 
-type Action =
-  | { type: "ADD_QUERY"; payload: string }
-  | { type: "ADD_IMAGES"; payload: Basic[] };
+type Action = { type: "ADD_IMAGES"; payload: Basic[] };
 
 interface Context {
   state: State;
