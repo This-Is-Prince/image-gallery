@@ -2,7 +2,7 @@ import { createContext, FC, useContext } from "react";
 import { Context } from "../types";
 import useGlobalReducer from "./AppReducer";
 
-const AppContext = createContext<Context | null>(null);
+const AppContext = createContext<Context>(null!);
 
 const AppWrapper: FC<any> = ({ children }) => {
   const [state, dispatch] = useGlobalReducer()!;
