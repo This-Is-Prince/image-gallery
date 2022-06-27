@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { unsplash } from "../../api/unsplash";
-import { useAppContext } from "../../context/AppContext";
+import useImageStore from "../../app/imageStore";
 import SearchBar from "./SearchBar";
 
 const SearchBarCard = () => {
-  const { dispatch } = useAppContext()!;
+  const addImages = useImageStore((state) => state.addImages);
   const [searchQuery, setSearchQuery] = useState("");
 
   const getPhotos = async () => {
@@ -12,7 +12,7 @@ const SearchBarCard = () => {
       query: searchQuery.trim(),
     });
     if (res.response) {
-      dispatch({ type: "ADD_IMAGES", payload: res.response.results });
+      addImages(res.response.results);
     }
   };
 

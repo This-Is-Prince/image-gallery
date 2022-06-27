@@ -2,15 +2,9 @@ import { Basic, Full, Random } from "unsplash-js/dist/methods/photos/types";
 
 type ImagesType = Basic[] | Random[];
 
-interface State {
-  images: ImagesType[];
-}
-
-type Action = { type: "ADD_IMAGES"; payload: Basic[] };
-
-interface Context {
-  state: State;
-  dispatch: React.Dispatch<Action>;
+interface ImageStoreType {
+  images: ImagesType[],
+  addImages: (images: ImagesType) => void
 }
 
 interface SearchBarType {
@@ -36,11 +30,9 @@ interface ImageCardType {
 }
 
 export {
-  State,
-  Action,
-  Context,
   SearchBarType,
   ImageCardType,
   UserType,
   ImagesType,
+  ImageStoreType,
 };
