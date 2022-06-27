@@ -8,11 +8,15 @@ const SearchBarCard = () => {
   const [searchQuery, setSearchQuery] = useState("");
 
   const getPhotos = async () => {
-    const res = await unsplash.search.getPhotos({
-      query: searchQuery.trim(),
-    });
-    if (res.response) {
-      addImages(res.response.results);
+    try {
+      const res = await unsplash.search.getPhotos({
+        query: searchQuery.trim(),
+      });
+      if (res.response) {
+        addImages(res.response.results);
+      }
+    } catch (error) {
+      console.log(error)
     }
   };
 

@@ -1,8 +1,9 @@
 import { Random } from 'unsplash-js/dist/methods/photos/types';
-import create, { StateCreator } from 'zustand';
+import create from 'zustand';
+import { devtools, persist } from 'zustand/middleware'
 import { ImageStoreType, ImagesType } from '../types';
 
-const imageStore: StateCreator<ImageStoreType> = (set) => ({
+const useImageStore = create<ImageStoreType>()(devtools(persist((set) => ({
     images: [[], [], [], []],
     addImages: (images) => {
         const results: ImagesType[] = [[], [], [], []];
@@ -11,7 +12,5 @@ const imageStore: StateCreator<ImageStoreType> = (set) => ({
         });
         set((prevState) => ({ ...prevState, images: results }));
     },
-});
-
-const useImageStore = create(imageStore);
+}), { name: 'images' })));
 export default useImageStore;
