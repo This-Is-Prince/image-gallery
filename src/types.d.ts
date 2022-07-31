@@ -5,8 +5,11 @@ type ImagesType = Basic[] | Random[];
 interface ImageStoreType {
   images: ImagesType[];
   isModalOpen: boolean;
+  selectedImage: SelectedImage | null;
   addImages: (images: ImagesType) => void;
   toggleModal: () => void;
+  selectImage: (obj: SelectedImage | null) => void;
+  unSelectImage: () => void;
 }
 
 interface SearchBarType {
@@ -30,5 +33,11 @@ interface ImageCardType {
   description: string;
   download_url: string;
 }
+
+
+interface SelectedImage extends ImageCardType {
+  user: UserType
+}
+
 
 export { SearchBarType, ImageCardType, UserType, ImagesType, ImageStoreType };

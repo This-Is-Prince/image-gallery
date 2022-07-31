@@ -9,6 +9,7 @@ const useImageStore = create<ImageStoreType>()(
       (set) => ({
         images: [[], [], [], []],
         isModalOpen: false,
+        selectedImage: null,
         addImages: (images) => {
           const results: ImagesType[] = [[], [], [], []];
           images.forEach((image, index) => {
@@ -19,6 +20,16 @@ const useImageStore = create<ImageStoreType>()(
         toggleModal: () => {
           set((prevState) => ({
             ...prevState,
+            isModalOpen: !prevState.isModalOpen,
+          }));
+        },
+        selectImage: (selectedImage) => {
+          set((prevState) => ({ ...prevState, selectedImage }));
+        },
+        unSelectImage: () => {
+          set((prevState) => ({
+            ...prevState,
+            selectedImage: null,
             isModalOpen: !prevState.isModalOpen,
           }));
         },

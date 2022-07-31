@@ -2,6 +2,7 @@ import { AiOutlineLike } from "react-icons/ai";
 import { FC } from "react";
 import { ImageCardType } from "../../types";
 import useImageStore from "../../app/imageStore";
+import { convertLikes } from "../../utils";
 
 const ImageCard: FC<ImageCardType> = ({
   description,
@@ -10,14 +11,17 @@ const ImageCard: FC<ImageCardType> = ({
   likes,
   user,
 }) => {
-  const { toggleModal } = useImageStore((store) => {
-    return { toggleModal: store.toggleModal };
+  const { toggleModal, selectImage } = useImageStore((store) => {
+    return { toggleModal: store.toggleModal, selectImage: store.selectImage };
   });
   return (
     <article
       className="border-[1px] border-gray-200 rounded-md hover:scale-95 hover:transition-transform cursor-pointer"
       onClick={() => {
         toggleModal();
+        selectImage({
+          description,download_url,img_url, likes,user
+        });
       }}
     >
       <div>
@@ -44,7 +48,7 @@ const ImageCard: FC<ImageCardType> = ({
         <p className="ml-auto flex items-center gap-x-1">
           <AiOutlineLike />
 
-          <span className="text-xs">{likes}</span>
+          <span className="text-xs">{convertLikes(likes)}</span>
         </p>
       </div>
     </article>
