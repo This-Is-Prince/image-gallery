@@ -10,7 +10,7 @@ const ImageCard: FC<ImageCardType> = ({
   user,
 }) => {
   return (
-    <article className="border-[1px] border-gray-200 rounded-md">
+    <article className="border-[1px] border-gray-200 rounded-md hover:scale-95 hover:transition-transform cursor-pointer">
       <div>
         <img
           src={img_url}
