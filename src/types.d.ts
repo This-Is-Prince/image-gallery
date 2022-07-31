@@ -3,8 +3,10 @@ import { Basic, Full, Random } from "unsplash-js/dist/methods/photos/types";
 type ImagesType = Basic[] | Random[];
 
 interface ImageStoreType {
-  images: ImagesType[],
-  addImages: (images: ImagesType) => void
+  images: ImagesType[];
+  isModalOpen: boolean;
+  addImages: (images: ImagesType) => void;
+  toggleModal: () => void;
 }
 
 interface SearchBarType {
@@ -29,10 +31,4 @@ interface ImageCardType {
   download_url: string;
 }
 
-export {
-  SearchBarType,
-  ImageCardType,
-  UserType,
-  ImagesType,
-  ImageStoreType,
-};
+export { SearchBarType, ImageCardType, UserType, ImagesType, ImageStoreType };

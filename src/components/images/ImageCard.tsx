@@ -1,6 +1,7 @@
 import { AiOutlineLike } from "react-icons/ai";
 import { FC } from "react";
 import { ImageCardType } from "../../types";
+import useImageStore from "../../app/imageStore";
 
 const ImageCard: FC<ImageCardType> = ({
   description,
@@ -9,8 +10,16 @@ const ImageCard: FC<ImageCardType> = ({
   likes,
   user,
 }) => {
+  const { toggleModal } = useImageStore((store) => {
+    return { toggleModal: store.toggleModal };
+  });
   return (
-    <article className="border-[1px] border-gray-200 rounded-md hover:scale-95 hover:transition-transform cursor-pointer">
+    <article
+      className="border-[1px] border-gray-200 rounded-md hover:scale-95 hover:transition-transform cursor-pointer"
+      onClick={() => {
+        toggleModal();
+      }}
+    >
       <div>
         <img
           src={img_url}
