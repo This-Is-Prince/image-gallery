@@ -10,7 +10,7 @@ const ImageCard: FC<ImageCardType> = ({
   user,
 }) => {
   return (
-    <article className="border-[1px] border-gray-200  rounded-md">
+    <article className="border-[1px] border-gray-200 rounded-md">
       <div>
         <img
           src={img_url}
@@ -26,9 +26,11 @@ const ImageCard: FC<ImageCardType> = ({
         />
         <p className="flex flex-col italic">
           <span className="font-bold">{user.name}</span>
-          <span className="text-sm text-gray-400">
-            @ {user.twitter_username}
-          </span>
+          {user.twitter_username && (
+            <span className="text-sm text-gray-400">
+              @ {user.twitter_username}
+            </span>
+          )}
         </p>
         <p className="ml-auto flex items-center gap-x-1">
           <AiOutlineLike />
