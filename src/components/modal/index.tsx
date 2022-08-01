@@ -22,10 +22,10 @@ const Modal = () => {
     return <></>;
   }
   return (
-    <section className="fixed inset-0 flex justify-center items-center p-5 w-screen h-screen">
-      <div className="bg-black p-2 relative rounded-md h-5/6">
+    <section className="fixed z-[100] inset-0 flex justify-center items-center p-5 w-screen h-screen bg-gray-500 bg-opacity-50">
+      <div className="bg-black relative rounded-md h-5/6">
         <button
-          className="absolute -top-3 -right-3 bg-white rounded-full p-2 text-base shadow-inner shadow-gray-300"
+          className="absolute -top-3 -right-3 bg-white rounded-full p-2 text-base"
           onClick={() => {
             unSelectImage();
           }}
@@ -34,7 +34,7 @@ const Modal = () => {
         </button>
         <div className="h-full grid grid-rows-2">
           <article className="row-span-2">
-            <div className="h-full overflow-auto scrollbar-thin scrollbar-thumb-white scrollbar-track-transparent">
+            <div className="h-full overflow-auto scrollbar-thin scrollbar-thumb-white scrollbar-track-transparent rounded-t-md">
               <img
                 src={selectedImage?.img_url}
                 className="shrink-0 block w-auto h-auto rounded-t-md"
