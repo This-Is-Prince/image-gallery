@@ -1,23 +1,14 @@
-import { useState } from "react";
-import { unsplash } from "../../api/unsplash";
 import useImageStore from "../../app/imageStore";
+import { TSearchPhotos } from "../../types";
+import { getPhotos } from "../../utils";
 import SearchBar from "./SearchBar";
 
 const SearchBarCard = () => {
   const addImages = useImageStore((state) => state.addImages);
-  const [searchQuery, setSearchQuery] = useState("");
 
-  const getPhotos = async () => {
-    try {
-      const res = await unsplash.search.getPhotos({
-        query: searchQuery.trim(),
-      });
-      if (res.response) {
-        addImages(res.response.results);
-      }
-    } catch (error) {
-      console.log(error)
-    }
+  const searchPhotos: TSearchPhotos = async (searchQuery) => {
+    const photos = await getPhotos(searchQuery);
+    addImages(photos);
   };
 
   return (
@@ -28,11 +19,7 @@ const SearchBarCard = () => {
       <p className="text-center text-gray-300 ">
         Over 2.4 million+ stock Images by our talented community
       </p>
-      <SearchBar
-        setSearchQuery={setSearchQuery}
-        getPhotos={getPhotos}
-        searchQuery={searchQuery}
-      />
+      <SearchBar searchPhotos={searchPhotos} />
     </section>
   );
 };

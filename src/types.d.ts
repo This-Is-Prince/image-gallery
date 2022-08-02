@@ -12,10 +12,12 @@ interface ImageStoreType {
   unSelectImage: () => void;
 }
 
+type TGetPhotos = (searchQuery: string) => Promise<ImagesType | []>;
+type TSearchPhotos = (searchQuery: string) => Promise<void>;
+type TGetRandomPhotos = () => Promise<ImagesType | []>;
+
 interface SearchBarType {
-  searchQuery: string;
-  getPhotos: () => Promise<void>;
-  setSearchQuery: React.Dispatch<React.SetStateAction<string>>;
+  searchPhotos: TSearchPhotos;
 }
 
 interface UserType {
@@ -34,10 +36,17 @@ interface ImageCardType {
   download_url: string;
 }
 
-
 interface SelectedImage extends ImageCardType {
-  user: UserType
+  user: UserType;
 }
 
-
-export { SearchBarType, ImageCardType, UserType, ImagesType, ImageStoreType };
+export {
+  SearchBarType,
+  ImageCardType,
+  UserType,
+  ImagesType,
+  ImageStoreType,
+  TGetPhotos,
+  TSearchPhotos,
+  TGetRandomPhotos,
+};
