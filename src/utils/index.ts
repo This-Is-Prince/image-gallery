@@ -1,5 +1,6 @@
 import { unsplash } from "../api/unsplash";
 import { ImagesType, TGetPhotos, TGetRandomPhotos } from "../types";
+import { toast } from "react-toastify";
 
 const convertLikes = (likes: number) => {
   if (likes < 1000) {
@@ -14,13 +15,18 @@ const getPhotos: TGetPhotos = async (searchQuery) => {
     const res = await unsplash.search.getPhotos({
       query: searchQuery,
     });
-    if (res.response) {
+    if (res.response && res.response.results.length > 0) {
+      toast.success("Successfully find images");
       return res.response.results;
+    } else {
+      toast.warn(`No images related to "${searchQuery}"`);
+      return [];
     }
   } catch (error) {
+    toast.error("Can't find images there is some error.");
     console.log(error);
+    return [];
   }
-  return [];
 };
 
 const getRandomPhotos: TGetRandomPhotos = async () => {
@@ -33,12 +39,17 @@ const getRandomPhotos: TGetRandomPhotos = async () => {
       } else {
         results.push(res.response);
       }
+      toast.success("Successfully find random images.");
       return results;
+    } else {
+      toast.warn(`Can't find random images.`);
+      return [];
     }
   } catch (error) {
+    toast.error("Can't find images there is some error.");
     console.log(error);
+    return [];
   }
-  return [];
 };
 
 export { convertLikes, getPhotos, getRandomPhotos };
