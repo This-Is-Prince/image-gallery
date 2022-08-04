@@ -16,7 +16,7 @@ const ImageCard: FC<ImageCardType> = ({
   });
   return (
     <article
-      className="border-[1px] border-gray-200 rounded-md hover:scale-95 hover:transition-transform cursor-pointer"
+      className="border-[1px] border-gray-200 rounded-md hover:scale-95 hover:transition-transform cursor-pointer shadow-xl"
       onClick={() => {
         toggleModal();
         selectImage({
