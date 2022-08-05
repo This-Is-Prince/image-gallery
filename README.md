@@ -7,3 +7,4 @@
 - [React Icons](https://react-icons.github.io/react-icons/)
 - [TailwindCSS for styling](https://tailwindcss.com/)
 - [Vite for frontend tooling](https://vitejs.dev/)
+- [React-Toastify](https://fkhadra.github.io/react-toastify/introduction/)
